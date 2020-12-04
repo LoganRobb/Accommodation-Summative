@@ -1,0 +1,65 @@
+$primary : #abcdef;
+$headings-font-family :'Poppins', sans-serif;
+$h1-font-size: 70px;
+$headings-font-weight: 600;
+$headings-color: white;
+
+
+$font-family: 'Poppins', sans-serif;
+
+
+// Custom.scss
+// Option A: Include all of Bootstrap
+
+@import "../bootstrap-4.5.3/scss/bootstrap.scss";
+
+
+
+.mainPageImput{
+  // border: 2px solid red;
+  background: black;
+}
+#map{
+  width: 1080px;
+  height: 700px;
+  margin-left: 10px;
+}
+
+.backVid{
+  height: 1080px;
+  z-index: -1;
+  position: absolute;
+}
+h1{
+  margin-top: 170px;
+}
+.myModal{
+  width: 1100px;
+  height: 755px;
+  left: 21%;
+  top: 3%;
+  position : fixed;
+  z-index : 3;
+  margin-top: 100px;
+
+}
+
+.closeBtn{
+  height: 20px;
+  width: auto;
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.mapImages{
+  height: 330px;
+  width: auto;
+}
+
+.mapWindow{
+  width: 600px;
+  height: 500px;
+}
+p{
+  width: 580px;
+}
