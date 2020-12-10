@@ -216,12 +216,12 @@ var acc = [
     photo : 'nest.png',
     desc : 'Earlier or later checkin or checkout times may be able to be arranged - please ask. Light breakfast supplies provided are: bread, spreads (honey, marmalade, jam), muesli, plunger coffee and a selection of teas also available. Please advise if you would like a specific one type of milk and/or bread. (24 hrs prior to check-in)',
   }
-] //Object Array ends
+]; //Object Array ends
 
 
-console.log(key);
-var script = '<script src="https://maps.googleapis.com/maps/api/js?key=' + key + '&libraries=&v=weekly" defer></script>'
-console.log (script);
+
+var script = '<script src="https://maps.googleapis.com/maps/api/js?key=' + key + '&libraries=&v=weekly" defer></script>';
+
 
 $(document).ready(function(){
   $('body').append(script);
@@ -233,7 +233,6 @@ $(document).ready(function(){
   var days, guests, meal;
 
 function initMap(accom) {
-  console.log(accom);
   // The location of Uluru
 const wellington = { lat: -41.2769, lng: 174.7731 };
   // The map, centered at Uluru
@@ -244,8 +243,7 @@ const map = new google.maps.Map(document.getElementById("map"), {
 
 var i;
   for (i = 0 ; i < accom.length; i++){
-    console.log(accom[i].lat, accom[i].lng);
-    var location = { lat : accom[i].lat, lng: accom[i].lng}
+    var location = { lat : accom[i].lat, lng: accom[i].lng};
     // The marker, positioned at Uluru
     var marker = new google.maps.Marker({
       position: location,
@@ -265,7 +263,6 @@ var i;
     marker.addListener("click", () => {
         infowindow.open(map, marker);
       });
-    //push the marker into array then run loop to accsess markers click event to trigger modal with details
   }
 }//initMap
 
@@ -303,12 +300,10 @@ $(function() {
   $('#searchBtn').click(function(){
   days = dateDiff();
   guests = parseInt($('#guests').val());
-  console.log(days,guests);
   meal=parseInt($('#meal').val());
   filterAccommodation(days, guests);
 
   $('#exampleModal').show();
-    // filterAccommodation(days, guests);
   }); //search btn
   $('.closeBtn').click(function(){
     $('#exampleModal').hide();
@@ -318,24 +313,20 @@ function dateDiff(){
   var end = $(datepicker2).datepicker('getDate');
 
   var days = (end-start)/1000/60/60/24; //to get human readable days
-  console.log(days);
   return (days);
 
 }//dateDiff
 function filterAccommodation(d,g){
-  console.log(d,g);
   var i;
   var filteredObjects =[];
   for(i = 0; i< acc.length; i++){
-    console.log(acc[i].minDays, acc[i].maxDays, acc[i].minPeople, acc[i].maxPeople);
     if ((d <= acc[i].maxDays) && (d >= acc[i].minDays) && (g <= acc[i].maxPeople) && (g >= acc[i].minPeople)) {
       filteredObjects.push(acc[i]);
     }
   }
-  console.log(filteredObjects);
   initMap(filteredObjects);
 }
-   
+
 
 
     $( "#speed" ).selectmenu();
